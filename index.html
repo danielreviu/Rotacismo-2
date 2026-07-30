@@ -1,9 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#111E25">
+
+<title>Curar rotacismo y pronunciar la r · Rotacismo S.O.S!</title>
+<meta name="description" content="Rotacismo S.O.S! es una app gratuita para curar el rotacismo y aprender a pronunciar la r y la rr. Ejercicios de logopedia con retardo auditivo (DAF), niveles y práctica diaria, desde el celular o la PC.">
+<meta name="keywords" content="curar rotacismo, pronunciar la r, cómo pronunciar la r, aprender a pronunciar la rr, corregir el rotacismo, ejercicios para pronunciar la r, no puedo pronunciar la r, rotacismo en niños, rotacismo en adultos, dislalia, logopedia, fonoaudiología, terapia del habla, vibrante múltiple, ejercicios de logopedia en casa, app para el rotacismo">
+<meta name="author" content="Rotacismo S.O.S!">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rotacismo S.O.S!">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Curar rotacismo y pronunciar la r · Rotacismo S.O.S!">
+<meta property="og:description" content="App gratuita para curar el rotacismo y aprender a pronunciar la r y la rr: retardo auditivo, niveles y práctica diaria en celular o PC.">
+<meta property="og:image" content="./assets/logo-lobo.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Curar rotacismo y pronunciar la r · Rotacismo S.O.S!">
+<meta name="twitter:description" content="App gratuita para curar el rotacismo y aprender a pronunciar la r y la rr.">
+<meta name="twitter:image" content="./assets/logo-lobo.png">
+
+<link rel="icon" href="./assets/logo-lobo.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Rotacismo S.O.S!",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web (Android, iOS, Windows, macOS)",
+  "inLanguage": ["es", "en", "it", "ru", "ar"],
+  "description": "App gratuita para curar el rotacismo y aprender a pronunciar la r y la rr, con ejercicios de logopedia y retardo auditivo (DAF).",
+  "keywords": "curar rotacismo, pronunciar la r, corregir el rotacismo, ejercicios para pronunciar la r, logopedia",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
 <script src="./support.js"></script>
 </head>
 <body>
@@ -215,6 +250,14 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
   .dlg-t{font-size:clamp(24px,6.4vw,40px)!important}
   .dlg-b{font-size:clamp(16px,4.2vw,21px)!important}
   .dlg-btn{height:58px!important;font-size:clamp(17px,4.6vw,23px)!important}
+  .dlg-mic-panel{padding:10px 12px 12px!important;border-radius:16px!important}
+  .dlg-mic-panel > div:first-child{gap:6px!important}
+  .dlg-box .dlg-mic-btn{width:clamp(84px,24vw,104px)!important;height:clamp(84px,24vw,104px)!important}
+  .dlg-box .dlg-mic-btn svg{width:clamp(32px,9vw,40px)!important;height:clamp(32px,9vw,40px)!important}
+  .dlg-mic-btnrow{margin-top:14px!important}
+  .dlg-mic-tip{padding:10px 12px!important;gap:8px!important;margin-top:14px!important}
+  .dlg-mic-tip div{font-size:clamp(13px,3.5vw,15px)!important}
+  .dlg-mic-tip svg{width:19px!important;height:19px!important}
 
   /* ---- PRÁCTICA + JEFE (paneles compartidos) ---- */
   .pr-screen,.jf-screen{padding:14px max(12px,env(safe-area-inset-left)) calc(24px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-right))!important}
@@ -323,6 +366,8 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
   .pr-target-row{min-height:78px!important}
   .pr-mic{width:74px!important;height:74px!important}
   .pr-mic svg{width:28px!important;height:28px!important}
+  .dlg-box .dlg-mic-btn{width:74px!important;height:74px!important}
+  .dlg-box .dlg-mic-btn svg{width:28px!important;height:28px!important}
 }
 </style>
 </helmet>
@@ -346,7 +391,7 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
         </div>
 
         <div class="pt-side" style="width:520px;flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start">
-          <div class="pt-title" style="font-family:'Baloo 2','Cairo',cursive;font-size:68px;font-weight:800;line-height:1;letter-spacing:-1px"><span style="color:#FF4B4B">R</span><span style="color:#242424">otacismo SOS</span></div>
+          <div class="pt-title" style="font-family:'Baloo 2','Cairo',cursive;font-size:68px;font-weight:800;line-height:1;letter-spacing:-1px"><span style="color:#FF4B4B">R</span><span style="color:#242424">otacismo </span><span style="color:#FF4B4B">S</span><span style="color:#242424">.O.</span><span style="color:#FF4B4B">S</span><span style="color:#242424">!</span></div>
           <div class="pt-tag" style="font-size:19px;font-weight:700;color:#6B7C86;max-width:430px;margin-top:14px;line-height:1.45;text-wrap:pretty">{{ t.tag }}</div>
 
           <div class="pt-cta-row" style="display:flex;align-items:flex-start;gap:24px;margin-top:44px">
@@ -448,7 +493,6 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
             <img src="./assets/logo-lobo.png" alt="Rotacismo" style="width:112px;height:auto;display:block;margin-bottom:-2px">
           </div>
           <div style="flex:1;height:14px;border-radius:99px;background:#23343E;overflow:hidden"><div style="width:{{ chkPctW }};height:100%;background:linear-gradient(#FFDE5C,#FFC800);border-radius:99px;transition:width .45s cubic-bezier(.3,1.2,.5,1)"></div></div>
-          <div style="font-size:15px;font-weight:900;color:#CFE2EB;min-width:42px;text-align:right">{{ chkPct }}%</div>
         </div>
 
         <sc-if value="{{ chkA }}" hint-placeholder-val="{{ true }}">
@@ -525,6 +569,84 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
           <sc-if value="{{ langIT }}"><img src="./assets/daf-it.png" alt="hablas · delay · te escuchas" style="display:block;width:100%;height:auto;border-radius:14px"></sc-if>
         </div>
         <button class="dlg-btn" onClick="{{ okD1 }}" style="width:100%;height:66px;margin-top:22px;background:#58CC02;border:0;border-bottom:5px solid #46A302;border-radius:16px;color:#FFFFFF;font-size:23px;font-weight:900;letter-spacing:1.2px;cursor:pointer" style-active="transform:translateY(4px);border-bottom-color:#58CC02">{{ t.d1Btn }}</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ dMicOpen }}">
+    <div class="dlg-back" style="position:fixed;left:0;top:0;right:0;bottom:0;z-index:95;background:rgba(6,14,19,.78);display:flex;align-items:center;justify-content:center;padding:26px">
+      <div class="dlg-box" style="width:100%;max-width:700px;background:#E4C9A0;border:3px solid #B08A57;border-bottom-width:10px;border-radius:30px;padding:32px 36px 28px;box-shadow:0 26px 60px rgba(0,0,0,.5);animation:cae .45s cubic-bezier(.3,1.2,.5,1) both;text-align:center">
+        <div class="dlg-t" style="font-family:'Baloo 2','Cairo',cursive;font-size:40px;font-weight:800;color:#4A3116;line-height:1.08">{{ t.dMicT }}</div>
+        <div class="dlg-b" style="font-size:21px;font-weight:800;color:#6B5232;margin:10px auto 0;line-height:1.46;max-width:560px;text-wrap:pretty">{{ t.dMicB }}</div>
+
+        <div class="dlg-mic-panel" style="margin-top:20px;background:#122C38;border:2px solid #22475A;border-radius:18px;padding:12px 16px 14px;text-align:start">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <sc-if value="{{ micOn }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;align-items:center;gap:9px;min-width:0">
+                <svg viewBox="0 0 24 24" style="width:18px;height:18px;flex:0 0 auto"><path d="M12 3 a3.4 3.4 0 0 1 3.4 3.4 v5.2 a3.4 3.4 0 0 1 -6.8 0 V6.4 A3.4 3.4 0 0 1 12 3 z" fill="#1CB0F6"></path><path d="M5.6 11.4 a6.4 6.4 0 0 0 12.8 0 M12 17.8 V21" stroke="#1CB0F6" stroke-width="2.4" fill="none" stroke-linecap="round"></path></svg>
+                <div style="display:flex;align-items:flex-end;gap:3px;height:17px;flex:0 0 auto">
+                  <div style="width:3px;height:100%;border-radius:2px;background:#1CB0F6;animation:onda .9s ease-in-out infinite"></div>
+                  <div style="width:3px;height:100%;border-radius:2px;background:#1CB0F6;animation:onda .9s ease-in-out .12s infinite"></div>
+                  <div style="width:3px;height:100%;border-radius:2px;background:#1CB0F6;animation:onda .9s ease-in-out .24s infinite"></div>
+                  <div style="width:3px;height:100%;border-radius:2px;background:#1CB0F6;animation:onda .9s ease-in-out .36s infinite"></div>
+                  <div style="width:3px;height:100%;border-radius:2px;background:#1CB0F6;animation:onda .9s ease-in-out .48s infinite"></div>
+                </div>
+                <div style="font-size:13px;font-weight:900;color:#5EC6F8">{{ t.micOnT }}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ micOff }}">
+              <div style="display:flex;align-items:center;gap:9px;min-width:0">
+                <svg viewBox="0 0 24 24" style="width:18px;height:18px;flex:0 0 auto"><path d="M12 3 a3.4 3.4 0 0 1 3.4 3.4 v5.2 a3.4 3.4 0 0 1 -6.8 0 V6.4 A3.4 3.4 0 0 1 12 3 z" fill="#3E5F70"></path><path d="M5.6 11.4 a6.4 6.4 0 0 0 12.8 0 M12 17.8 V21 M4.5 3.5 L19.5 20.5" stroke="#3E5F70" stroke-width="2.4" fill="none" stroke-linecap="round"></path></svg>
+                <div style="display:flex;align-items:flex-end;gap:3px;height:17px;flex:0 0 auto">
+                  <div style="width:3px;height:5px;border-radius:2px;background:#2A414D"></div>
+                  <div style="width:3px;height:5px;border-radius:2px;background:#2A414D"></div>
+                  <div style="width:3px;height:5px;border-radius:2px;background:#2A414D"></div>
+                  <div style="width:3px;height:5px;border-radius:2px;background:#2A414D"></div>
+                  <div style="width:3px;height:5px;border-radius:2px;background:#2A414D"></div>
+                </div>
+                <div style="font-size:13px;font-weight:900;color:#6E8B9A">{{ t.micOffT }}</div>
+              </div>
+            </sc-if>
+            <svg viewBox="0 0 24 24" style="width:24px;height:24px;flex:0 0 auto"><path d="M4.4 15.6 V12 a7.6 7.6 0 0 1 15.2 0 v3.6" stroke="#7FA3B5" stroke-width="2.4" fill="none" stroke-linecap="round"></path><rect x="2.4" y="14.2" width="5" height="7.4" rx="2.5" fill="#7FA3B5"></rect><rect x="16.6" y="14.2" width="5" height="7.4" rx="2.5" fill="#7FA3B5"></rect></svg>
+          </div>
+
+          <div class="dlg-mic-name" style="margin-top:10px;padding:8px 11px;border-radius:12px;background:#0D2029;border:1px solid #1E3F50;display:flex;align-items:baseline;gap:7px;flex-wrap:wrap">
+            <span style="font-size:12px;font-weight:900;letter-spacing:.5px;color:#5EC6F8;flex:0 0 auto">{{ t.dMicLbl }}:</span>
+            <span style="font-size:13px;font-weight:800;color:{{ micNameColor }};line-height:1.35;overflow-wrap:anywhere">{{ micName }}</span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:11px;margin-top:11px">
+            <div style="font-size:12px;font-weight:900;color:#5EC6F8;letter-spacing:.5px;flex:0 0 auto">{{ t.delay }}</div>
+            <div onPointerDown="{{ dafDown }}" onPointerMove="{{ dafMove }}" onPointerUp="{{ dafUp }}" onPointerCancel="{{ dafUp }}" style="position:relative;flex:1;height:22px;display:flex;align-items:center;cursor:pointer;touch-action:none">
+              <div style="width:100%;height:7px;border-radius:99px;background:#1E4054"></div>
+              <div style="position:absolute;left:0;height:7px;width:{{ dafPos }};border-radius:99px;background:#1CB0F6"></div>
+              <div style="position:absolute;left:{{ dafPos }};width:20px;height:20px;margin-left:-10px;border-radius:99px;background:#fff;border:3px solid #1CB0F6"></div>
+            </div>
+            <div style="font-size:13px;font-weight:900;color:#DCEAF1;min-width:56px;text-align:right;flex:0 0 auto">{{ dafLabel }}</div>
+          </div>
+        </div>
+
+        <div class="dlg-mic-btnrow" style="display:flex;align-items:center;justify-content:center;margin-top:18px">
+          <sc-if value="{{ micOn }}" hint-placeholder-val="{{ true }}">
+            <button class="pr-mic dlg-mic-btn" onClick="{{ toggleMic }}" title="Apagar micrófono" style="width:104px;height:104px;border-radius:99px;background:#1CB0F6;border:0;border-bottom:6px solid #0E86C4;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;animation:micPulso 2.4s ease-out infinite" style-active="transform:translateY(4px);border-bottom-width:2px">
+              <svg viewBox="0 0 24 24" style="width:40px;height:40px"><path d="M12 2.6 a3.6 3.6 0 0 1 3.6 3.6 v5.4 a3.6 3.6 0 0 1 -7.2 0 V6.2 A3.6 3.6 0 0 1 12 2.6 z" fill="#FFFFFF"></path><path d="M5.4 11.2 a6.6 6.6 0 0 0 13.2 0 M12 17.9 V21.4" stroke="#FFFFFF" stroke-width="2.6" fill="none" stroke-linecap="round"></path></svg>
+              <span style="font-size:11px;font-weight:900;color:#FFFFFF;letter-spacing:.9px">{{ t.escuchandoT }}</span>
+            </button>
+          </sc-if>
+          <sc-if value="{{ micOff }}">
+            <button class="pr-mic dlg-mic-btn" onClick="{{ toggleMic }}" title="Encender micrófono" style="width:104px;height:104px;border-radius:99px;background:#16252E;border:2px solid #33505E;border-bottom:6px solid #0B161C;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px" style-active="transform:translateY(4px);border-bottom-width:2px">
+              <svg viewBox="0 0 24 24" style="width:40px;height:40px"><path d="M12 2.6 a3.6 3.6 0 0 1 3.6 3.6 v5.4 a3.6 3.6 0 0 1 -7.2 0 V6.2 A3.6 3.6 0 0 1 12 2.6 z" fill="#4A6675"></path><path d="M5.4 11.2 a6.6 6.6 0 0 0 13.2 0 M12 17.9 V21.4 M4 3 L20 21" stroke="#4A6675" stroke-width="2.6" fill="none" stroke-linecap="round"></path></svg>
+              <span style="font-size:11px;font-weight:900;color:#7FA3B5;letter-spacing:.9px">{{ t.microOffT }}</span>
+            </button>
+          </sc-if>
+        </div>
+
+        <div class="dlg-mic-tip" style="margin-top:18px;background:#F1E4CB;border:2px solid #DCC79C;border-radius:16px;padding:11px 14px;display:flex;align-items:flex-start;gap:10px;text-align:start">
+          <svg viewBox="0 0 24 24" style="width:22px;height:22px;flex:0 0 auto;margin-top:1px"><circle cx="12" cy="12" r="9.4" fill="none" stroke="#B08A57" stroke-width="2.2"></circle><path d="M12 10.6 v6" stroke="#B08A57" stroke-width="2.6" stroke-linecap="round"></path><circle cx="12" cy="7.4" r="1.5" fill="#B08A57"></circle></svg>
+          <div style="font-size:15px;font-weight:800;color:#6B5232;line-height:1.42;text-wrap:pretty">{{ t.dMicTip }}</div>
+        </div>
+
+        <button class="dlg-btn" onClick="{{ okDMic }}" style="width:100%;height:66px;margin-top:20px;background:#58CC02;border:0;border-bottom:5px solid #46A302;border-radius:16px;color:#FFFFFF;font-size:23px;font-weight:900;letter-spacing:1.2px;cursor:pointer" style-active="transform:translateY(4px);border-bottom-color:#58CC02">{{ t.dMicBtn }}</button>
       </div>
     </div>
   </sc-if>
@@ -1410,10 +1532,10 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
   <sc-if value="{{ pizzaOpen }}">
     <div class="md-back" onClick="{{ cerrarPizza }}" style="position:fixed;left:0;top:0;right:0;bottom:0;z-index:97;background:rgba(8,14,18,.72);display:flex;align-items:center;justify-content:center;padding:24px;animation:suave .22s ease both">
       <div class="md-box md-piz-box" onClick="{{ stop }}" style="width:100%;max-width:520px;max-height:92vh;display:flex;flex-direction:column;background:#F9F9F9;border-radius:24px;border-bottom:7px solid #C9B896;overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.5);animation:cardIn .3s cubic-bezier(.3,1.2,.5,1) both">
-        <div class="md-piz-head" style="flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;background:#FFF9EF">
-          <div>
+        <div class="md-piz-head" style="flex:0 0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 18px;background:#FFF9EF">
+          <div style="flex:1 1 auto;min-width:0">
             <div style="font-family:'Baloo 2','Cairo',cursive;font-size:23px;font-weight:800;color:#3C3C3C;line-height:1.1">{{ t.pizza }}</div>
-            <div style="font-size:13px;font-weight:800;color:#8A9AA4">{{ t.gracias }}</div>
+            <div class="md-piz-sub" style="font-size:13px;font-weight:800;color:#8A9AA4;line-height:1.4;margin-top:4px;text-wrap:pretty">{{ t.gracias }}</div>
           </div>
           <button onClick="{{ cerrarPizza }}" style="flex:0 0 auto;background:#EEF3F5;border:0;border-bottom:4px solid #D4E0E6;border-radius:12px;padding:10px 16px;font-size:14px;font-weight:900;color:#5A727F;cursor:pointer">{{ t.cerrar }}</button>
         </div>
@@ -1697,7 +1819,7 @@ class Component extends DCLogic {
   esTips = ['Deja la lengua floja, no la aprietes.','Que el aire haga el trabajo, no la fuerza.','Primero di la ele. Ahí ya estás en el sitio.','Sopla como si apagaras una vela pequeña.','Si sale una sola vibración, ya vas bien.','Empieza despacio. La velocidad viene sola.'];
   esNames = { 1:'La Playa', 2:'El Muelle', 3:'Los Arrecifes', 4:'Isla Malvada', 5:'El Cofre' };
   esUI = {
-    tag:'Siempre buscando las maneras más efectivas de combatir el rotacismo.',
+    tag:'Siempre buscando las maneras más divertidas y efectivas de combatir el rotacismo.',
     empezar:'EMPEZAR', continuar:'CONTINUAR', hoja:'Hoja de estilos', ajustes:'Ajustes', portada:'Portada', cerrar:'Cerrar',
     idiomaBtn:'Español', idiomaLbl:'Idioma', idiomaT:'Elige tu idioma', idiomaSub:'La voz y todos los ejercicios cambian al idioma que elijas.', enPrueba:'en prueba',
     chkBadge:'CHEQUEO RÁPIDO', chkQ:'¿Puedes tocar tu paladar con la punta de la lengua, con la boca abierta?', chkSub:'Abre bien, sin cerrar los dientes. Toca justo detrás de los dientes de arriba.',
@@ -1707,6 +1829,9 @@ class Component extends DCLogic {
     rutaQ:'¿Qué tipo de rotacismo tienes?', rutaSub:'Si no sabes, elige «Las dos». Se puede cambiar después.',
     suaveT:'/r/ suave', suaveEx:'paro · caro · ar', fuerteT:'/rr/ fuerte', fuerteEx:'perro · carro · Rosas', dosT:'Las dos', dosSub:'primero la r suave y, cuando salga sola, arranca el motor de la rr.',
     d1T:'Así funciona la app', d1B:'Escucha tu propia voz con un pequeño retardo, conecta un audífono.', d1Btn:'¡Ya lo conecté!',
+    dMicT:'Conecta un micrófono', dMicB:'Enciende el micrófono y di «ar» en voz alta. Si te escuchas a ti mismo con un pequeño retardo, ya está todo listo.',
+    dMicLbl:'Micrófono', dMicNone:'sin detectar — enciéndelo abajo', dMicBtn:'¡Ya me escucho!',
+    dMicTip:'¿No te escuchas a ti mismo? Ve a la configuración de sonido de tu dispositivo, elige el micrófono correcto como predeterminado y vuelve a encenderlo aquí.',
     d2T:'Inténtalo muchas veces', d2B:'Repite la palabra hasta que tu lengua aprenda a cómo pronunciarla. Suele ser tedioso al inicio; tranquilo, está pensado para superarse en aproximadamente una semana y media.', d2Btn:'¡Vamos de una vez!',
     abierto:'abierto', bloqueado:'bloqueado', siCont:'Sí, continuar', mejorNo:'Mejor no',
     confT:'¿Seguro que quieres entrar a {x}?', confS:'Aún no cierras {y}. Este nivel trabaja {z}, y sin los cimientos suele sentirse cuesta arriba. Puedes entrar igual y volver cuando quieras.',
@@ -1719,7 +1844,7 @@ class Component extends DCLogic {
     paleta:'PALETA', pPortada:'Portada', pPractica:'Práctica', pMar:'Mar', pArena:'Arena', pAccion:'Acción', pErre:'ERRE', pEle:'ELE', pOro:'Oro',
     tipografia:'TIPOGRAFÍA', tipoT1:'Baloo 2 · títulos', tipoT2:'Nunito 800 · cuerpo e interfaz', tipoT3:'Sílaba de práctica · Nunito 900 · 96–120px en escritorio',
     reglaT:'REGLA DE COLOR EN CONTENIDO', reglaP:'La l es el andamio: la lengua ya está en los alveolos. Peldaños previos al 55–70% de opacidad y tamaño reducido. El objetivo va grande y centrado, con la r en rojo y peso 900. Los dígrafos rr van 10% más grandes y vibran al aparecer.',
-    pizza:'¡Cómprame una pizza!', guia:'Guía para padres', musica:'Música', musicaSub:'Laúd tranquilo en el mapa', gracias:'Gracias por sostener este proyecto.',
+    pizza:'¡Cómprame una pizza!', guia:'Guía para padres', musica:'Música', musicaSub:'Laúd tranquilo en el mapa', gracias:'Actualmente desarrollo este proyecto solo, ¡muchas gracias por mantener este proyecto y seguir ayudando a más personas con esta condición!',
     arrA:'¡A', arrR:'rrr', arrZ:'!',
     gTit:'Guía rápida para padres', gSub:'10 minutos al día valen más que dos horas el domingo.', gEnd:'¡Suerte!',
     g1T:'Veinte minutos por sesión, no más', g1B:'La lengua se cansa. Dos sesiones cortas al día rinden más que una larga. Si se frustra, se corta y se retoma mañana. No le obligues a continuar más de eso si ya está fatigado.',
@@ -1730,7 +1855,7 @@ class Component extends DCLogic {
     flo:['R','ar','para','caro','¿por qué?','perro','er','ir','rr','carro']
   };
   enUI = {
-    tag:'Always hunting for the most effective way to beat rhotacism.',
+    tag:'Always hunting for the most fun and effective ways to beat rhotacism.',
     empezar:'START', continuar:'CONTINUE', hoja:'Style sheet', ajustes:'Settings', portada:'Home', cerrar:'Close',
     idiomaBtn:'English', idiomaLbl:'Language', idiomaT:'Choose your language', idiomaSub:'The voice and every drill switch to the language you pick.', enPrueba:'in testing',
     chkBadge:'QUICK CHECK', chkQ:'Can you touch the roof of your mouth with the tip of your tongue, mouth open?', chkSub:'Open wide, teeth apart. Touch just behind your top teeth.',
@@ -1740,6 +1865,9 @@ class Component extends DCLogic {
     rutaQ:'Which kind of rhotacism do you have?', rutaSub:'If you are not sure, pick "Both". You can change it later.',
     suaveT:'soft /r/', suaveEx:'ray · road · car', fuerteT:'/r/ clusters', fuerteEx:'tree · brave · strong', dosT:'Both', dosSub:'the soft r first and, once it comes out on its own, start the r-cluster engine.',
     d1T:'How the app works', d1B:'You hear your own voice with a small delay. Plug in a headset.', d1Btn:'Plugged in!',
+    dMicT:'Connect a microphone', dMicB:'Turn the mic on and say "ar" out loud. If you hear yourself with a small delay, you are all set.',
+    dMicLbl:'Microphone', dMicNone:'not detected — turn it on below', dMicBtn:'I can hear myself!',
+    dMicTip:'Cannot hear yourself? Open your device sound settings, pick the right microphone as the default one, and switch it back on here.',
     d2T:'Try it many times', d2B:'Repeat the word until your tongue learns how to say it. It feels tedious at first; relax, it is built to be beaten in about a week and a half.',
     d2Btn:'Let us go already!',
     abierto:'open', bloqueado:'locked', siCont:'Yes, carry on', mejorNo:'Better not',
@@ -1753,7 +1881,7 @@ class Component extends DCLogic {
     paleta:'PALETTE', pPortada:'Home', pPractica:'Practice', pMar:'Sea', pArena:'Sand', pAccion:'Action', pErre:'ARR', pEle:'ELL', pOro:'Gold',
     tipografia:'TYPE', tipoT1:'Baloo 2 · headings', tipoT2:'Nunito 800 · body and UI', tipoT3:'Practice syllable · Nunito 900 · 96–120px on desktop',
     reglaT:'COLOUR RULE IN CONTENT', reglaP:'The l is the scaffold: the tongue is already on the alveolar ridge. Earlier steps sit at 55–70% opacity and smaller size. The target is big and centred, with the r in red at weight 900.',
-    pizza:'Buy me a pizza!', guia:'Guide for parents', musica:'Music', musicaSub:'Calm lute on the map', gracias:'Thanks for keeping this project alive.',
+    pizza:'Buy me a pizza!', guia:'Guide for parents', musica:'Music', musicaSub:'Calm lute on the map', gracias:'I build this project on my own — thank you so much for keeping it alive and helping more people with this condition!',
     arrA:'A', arrR:'rrr', arrZ:'!',
     gTit:'Quick guide for parents', gSub:'10 minutes a day beat two hours on Sunday.', gEnd:'Good luck!',
     g1T:'Twenty minutes per session, no more', g1B:'The tongue gets tired. Two short sessions a day work better than one long one. If they get frustrated, stop and pick it up tomorrow. Never push them past that point once they are tired.',
@@ -1764,7 +1892,7 @@ class Component extends DCLogic {
     flo:['R','ar','road','car','why?','right','er','tree','rr','mirror']
   };
   ruUI = {
-    tag:'Всегда ищем самые действенные способы победить ротацизм.',
+    tag:'Всегда ищем самые весёлые и действенные способы победить ротацизм.',
     empezar:'НАЧАТЬ', continuar:'ПРОДОЛЖИТЬ', hoja:'Стиль-гайд', ajustes:'Настройки', portada:'Главная', cerrar:'Закрыть',
     idiomaBtn:'Русский', idiomaLbl:'Язык', idiomaT:'Выбери язык', idiomaSub:'Голос и все упражнения переключатся на выбранный язык.', enPrueba:'тест',
     chkBadge:'БЫСТРАЯ ПРОВЕРКА', chkQ:'Можешь дотронуться кончиком языка до нёба с открытым ртом?', chkSub:'Открой рот шире, зубы не смыкай. Коснись сразу за верхними зубами.',
@@ -1774,6 +1902,9 @@ class Component extends DCLogic {
     rutaQ:'Какой у тебя ротацизм?', rutaSub:'Если не знаешь, выбери «Оба». Потом можно поменять.',
     suaveT:'мягкая /р/', suaveEx:'рак · роза · мир', fuerteT:'раскатистая /рр/', fuerteEx:'трава · гром · брат', dosT:'Оба', dosSub:'сначала простая р, а когда она пойдёт сама — запускаем раскат.',
     d1T:'Как работает приложение', d1B:'Ты слышишь свой голос с небольшой задержкой. Подключи наушники.', d1Btn:'Подключил!',
+    dMicT:'Подключи микрофон', dMicB:'Включи микрофон и скажи «ар» вслух. Если слышишь себя с небольшой задержкой — всё готово.',
+    dMicLbl:'Микрофон', dMicNone:'не найден — включи его ниже', dMicBtn:'Я себя слышу!',
+    dMicTip:'Не слышишь себя? Зайди в настройки звука устройства, выбери нужный микрофон по умолчанию и включи его здесь снова.',
     d2T:'Пробуй много раз', d2B:'Повторяй слово, пока язык не научится его произносить. Сначала это скучно; спокойно, всё рассчитано примерно на полторы недели.',
     d2Btn:'Ну поехали!',
     abierto:'открыт', bloqueado:'закрыт', siCont:'Да, продолжить', mejorNo:'Лучше нет',
@@ -1787,7 +1918,7 @@ class Component extends DCLogic {
     paleta:'ПАЛИТРА', pPortada:'Главная', pPractica:'Практика', pMar:'Море', pArena:'Песок', pAccion:'Действие', pErre:'ЭР', pEle:'ЭЛЬ', pOro:'Золото',
     tipografia:'ТИПОГРАФИКА', tipoT1:'Baloo 2 · заголовки', tipoT2:'Nunito 800 · текст и интерфейс', tipoT3:'Слог практики · Nunito 900 · 96–120px',
     reglaT:'ПРАВИЛО ЦВЕТА', reglaP:'Л — это опора: язык уже у альвеол. Предыдущие ступени идут на 55–70% прозрачности и меньшего размера. Цель — крупная, по центру, с красной р весом 900.',
-    pizza:'Купи мне пиццу!', guia:'Гид для родителей', musica:'Музыка', musicaSub:'Спокойная лютня на карте', gracias:'Спасибо, что поддерживаете проект.',
+    pizza:'Купи мне пиццу!', guia:'Гид для родителей', musica:'Музыка', musicaSub:'Спокойная лютня на карте', gracias:'Сейчас я развиваю этот проект один — огромное спасибо, что поддерживаете его и помогаете большему числу людей с этой особенностью!',
     arrA:'А', arrR:'ррр', arrZ:'!',
     gTit:'Короткий гид для родителей', gSub:'10 минут в день лучше двух часов по воскресеньям.', gEnd:'Удачи!',
     g1T:'Двадцать минут за занятие, не больше', g1B:'Язык устаёт. Два коротких занятия в день дают больше, чем одно долгое. Если ребёнок расстроился — стоп, продолжим завтра. Не заставляйте продолжать, если он уже устал.',
@@ -1798,7 +1929,7 @@ class Component extends DCLogic {
     flo:['Р','ар','рука','рыба','почему?','ррр','ер','мир','рр','гора']
   };
   arUI = {
-    tag:'نبحث دائماً عن أفضل الطرق لعلاج اللدغة في حرف الراء.',
+    tag:'نبحث دائماً عن أمتع الطرق وأكثرها فاعلية لعلاج اللدغة في حرف الراء.',
     empezar:'ابدأ', continuar:'متابعة', hoja:'دليل الأنماط', ajustes:'الإعدادات', portada:'الغلاف', cerrar:'إغلاق',
     idiomaBtn:'العربية', idiomaLbl:'اللغة', idiomaT:'اختر لغتك', idiomaSub:'يتغيّر الصوت وكل التدريبات إلى اللغة التي تختارها.', enPrueba:'تجريبي',
     chkBadge:'فحص سريع', chkQ:'هل تستطيع لمس سقف حلقك بطرف لسانك وفمك مفتوح؟', chkSub:'افتح فمك جيداً دون إغلاق الأسنان. المس خلف الأسنان العليا.',
@@ -1808,6 +1939,9 @@ class Component extends DCLogic {
     rutaQ:'أي نوع من اللدغة لديك؟', rutaSub:'إن لم تكن تعرف فاختر «الاثنتان». يمكن تغييرها لاحقاً.',
     suaveT:'راء خفيفة', suaveEx:'راح · رمز · بحر', fuerteT:'راء قوية', fuerteEx:'رجل · قرية · فرس', dosT:'الاثنتان', dosSub:'أولاً الراء الخفيفة، وعندما تخرج وحدها نشغّل المحرك القوي.',
     d1T:'كيف يعمل التطبيق', d1B:'تسمع صوتك بتأخير بسيط. صِلْ سماعة الرأس.', d1Btn:'وصلتها!',
+    dMicT:'وصِّل ميكروفوناً', dMicB:'شغّل الميكروفون وقل «را» بصوت عالٍ. إذا سمعت نفسك بتأخير بسيط فكل شيء جاهز.',
+    dMicLbl:'الميكروفون', dMicNone:'غير مكتشف — شغّله في الأسفل', dMicBtn:'أسمع نفسي!',
+    dMicTip:'لا تسمع نفسك؟ افتح إعدادات الصوت في جهازك، اختر الميكروفون الصحيح كجهاز افتراضي، ثم شغّله من هنا مرة أخرى.',
     d2T:'حاول مرات كثيرة', d2B:'كرّر الكلمة حتى يتعلم لسانك كيف ينطقها. تكون مملة في البداية، لا تقلق: التصميم يهدف إلى تجاوزها في أسبوع ونصف تقريباً.',
     d2Btn:'هيا نبدأ!',
     abierto:'مفتوح', bloqueado:'مقفل', siCont:'نعم، تابع', mejorNo:'ليس الآن',
@@ -1821,7 +1955,7 @@ class Component extends DCLogic {
     paleta:'اللوحة', pPortada:'الغلاف', pPractica:'التدريب', pMar:'البحر', pArena:'الرمل', pAccion:'الإجراء', pErre:'الراء', pEle:'اللام', pOro:'الذهب',
     tipografia:'الخطوط', tipoT1:'Baloo 2 · العناوين', tipoT2:'Nunito 800 · النص والواجهة', tipoT3:'مقطع التدريب · Nunito 900 · ٩٦–١٢٠ بكسل',
     reglaT:'قاعدة اللون في المحتوى', reglaP:'اللام هي السقالة: اللسان في مكانه على الحنك. الدرجات السابقة بشفافية ٥٥–٧٠٪ وحجم أصغر. الهدف كبير في المنتصف والراء بالأحمر.',
-    pizza:'اشترِ لي بيتزا!', guia:'دليل الآباء', musica:'الموسيقى', musicaSub:'عود هادئ على الخريطة', gracias:'شكراً لدعمك هذا المشروع.',
+    pizza:'اشترِ لي بيتزا!', guia:'دليل الآباء', musica:'الموسيقى', musicaSub:'عود هادئ على الخريطة', gracias:'أطوّر هذا المشروع بمفردي حالياً، شكراً جزيلاً لدعمك واستمرارك في مساعدة المزيد من الأشخاص الذين لديهم هذه الحالة!',
     arrA:'آ', arrR:'ررر', arrZ:'!',
     gTit:'دليل سريع للآباء', gSub:'10 دقائق يومياً أفضل من ساعتين يوم الأحد.', gEnd:'حظاً طيباً!',
     g1T:'عشرون دقيقة للجلسة، لا أكثر', g1B:'اللسان يتعب. جلستان قصيرتان في اليوم أفضل من جلسة طويلة. إذا انفعل الطفل توقّف وأكملا غداً. ولا تجبره على الاستمرار أكثر من ذلك إذا كان متعباً.',
@@ -1832,7 +1966,7 @@ class Component extends DCLogic {
     flo:['ر','را','راح','قمر','لماذا؟','ررر','ير','بحر','رر','فرس']
   };
   itUI = {
-    tag:'Sempre alla ricerca dei modi più efficaci per battere il rotacismo.',
+    tag:'Sempre alla ricerca dei modi più divertenti ed efficaci per battere il rotacismo.',
     empezar:'INIZIA', continuar:'CONTINUA', hoja:'Guida di stile', ajustes:'Impostazioni', portada:'Copertina', cerrar:'Chiudi',
     idiomaBtn:'Italiano', idiomaLbl:'Lingua', idiomaT:'Scegli la lingua', idiomaSub:'La voce e tutti gli esercizi passano alla lingua che scegli.', enPrueba:'in prova',
     chkBadge:'CONTROLLO RAPIDO', chkQ:'Riesci a toccare il palato con la punta della lingua, a bocca aperta?', chkSub:'Apri bene, senza chiudere i denti. Tocca subito dietro i denti superiori.',
@@ -1842,6 +1976,9 @@ class Component extends DCLogic {
     rutaQ:'Che tipo di rotacismo hai?', rutaSub:'Se non lo sai, scegli «Entrambe». Si può cambiare dopo.',
     suaveT:'/r/ dolce', suaveEx:'para · caro · ar', fuerteT:'/rr/ forte', fuerteEx:'carro · terra · corro', dosT:'Entrambe', dosSub:'prima la r dolce e, quando esce da sola, si accende il motore della rr.',
     d1T:'Come funziona la app', d1B:'Senti la tua voce con un piccolo ritardo. Collega le cuffie.', d1Btn:'Collegate!',
+    dMicT:'Collega un microfono', dMicB:'Accendi il microfono e di «ar» ad alta voce. Se ti senti con un piccolo ritardo, è tutto pronto.',
+    dMicLbl:'Microfono', dMicNone:'non rilevato — accendilo qui sotto', dMicBtn:'Mi sento!',
+    dMicTip:'Non ti senti? Apri le impostazioni audio del dispositivo, scegli il microfono giusto come predefinito e riaccendilo da qui.',
     d2T:'Provaci molte volte', d2B:'Ripeti la parola finché la lingua non impara a pronunciarla. All inizio è noioso; tranquillo, è pensato per essere superato in circa una settimana e mezza.',
     d2Btn:'Andiamo subito!',
     abierto:'aperto', bloqueado:'bloccato', siCont:'Sì, continua', mejorNo:'Meglio no',
@@ -1855,7 +1992,7 @@ class Component extends DCLogic {
     paleta:'PALETTE', pPortada:'Copertina', pPractica:'Pratica', pMar:'Mare', pArena:'Sabbia', pAccion:'Azione', pErre:'ERRE', pEle:'ELLE', pOro:'Oro',
     tipografia:'TIPOGRAFIA', tipoT1:'Baloo 2 · titoli', tipoT2:'Nunito 800 · testo e interfaccia', tipoT3:'Sillaba di pratica · Nunito 900 · 96–120px',
     reglaT:'REGOLA DEL COLORE', reglaP:'La l è l impalcatura: la lingua è già sugli alveoli. I gradini precedenti stanno al 55–70% di opacità e più piccoli. Il bersaglio è grande e centrato, con la r in rosso.',
-    pizza:'Offrimi una pizza!', guia:'Guida per i genitori', musica:'Musica', musicaSub:'Liuto tranquillo sulla mappa', gracias:'Grazie per sostenere questo progetto.',
+    pizza:'Offrimi una pizza!', guia:'Guida per i genitori', musica:'Musica', musicaSub:'Liuto tranquillo sulla mappa', gracias:'Al momento sviluppo questo progetto da solo, grazie mille per sostenerlo e continuare ad aiutare più persone con questa condizione!',
     arrA:'A', arrR:'rrr', arrZ:'!',
     gTit:'Guida rapida per i genitori', gSub:'10 minuti al giorno valgono più di due ore la domenica.', gEnd:'Buona fortuna!',
     g1T:'Venti minuti per sessione, non di più', g1B:'La lingua si stanca. Due sessioni brevi al giorno rendono più di una lunga. Se si innervosisce, si smette e si riprende domani. Non insistere oltre se è già stanco.',
@@ -2200,9 +2337,21 @@ class Component extends DCLogic {
         lim.threshold.value = -12; lim.knee.value = 4; lim.ratio.value = 20; lim.attack.value = .002; lim.release.value = .2;
         src.connect(delay); delay.connect(gain); gain.connect(lim); lim.connect(A.destination);
         this._daf = { stream: stream, src: src, delay: delay, gain: gain, lim: lim };
-        this.setState({ mic: true });
+        let nom = '';
+        try { const tr = stream.getAudioTracks()[0]; nom = (tr && tr.label) || ''; } catch (e) {}
+        this.setState({ mic: true, micName: nom });
+        if (!nom) this.buscaNombreMic();
       })
-      .catch(() => { this._dafPend = false; this.setState({ mic: false }); this.flash(this.T.micErr); });
+      .catch(() => { this._dafPend = false; this.setState({ mic: false, micName: '' }); this.flash(this.T.micErr); });
+  }
+  buscaNombreMic() {
+    const md = navigator.mediaDevices;
+    if (!md || !md.enumerateDevices) return;
+    md.enumerateDevices().then(ds => {
+      if (!this._daf) return;
+      const d = (ds || []).filter(x => x.kind === 'audioinput' && x.label)[0];
+      if (d) this.setState({ micName: d.label });
+    }).catch(() => {});
   }
   dafOff() {
     const d = this._daf;
@@ -2504,7 +2653,7 @@ class Component extends DCLogic {
     this.dafOff();
     try { this._au && this._au.pause(); window.speechSynthesis && window.speechSynthesis.cancel(); } catch (e) {}
     this.setState({ counts: {}, mastered: {}, plant: null, pendDone: null, askReset: false,
-      queue: null, qkey: null, qi: 0, level: 1, hp: 4, chk: 'A', ruta: null, bq: null, mic: false,
+      queue: null, qkey: null, qi: 0, level: 1, hp: 4, chk: 'A', ruta: null, bq: null, mic: false, micName: '',
       muerto: false, bossAlert: false, discl: 0, daf: 300, tipIdx: 0, pop: false, confirmL: null, langOpen: false });
   }
   go(scr) {
@@ -2533,7 +2682,7 @@ class Component extends DCLogic {
     if (l === 5) {
       clearTimeout(this._al); clearTimeout(this._ms);
       this._al = setTimeout(() => this.alarma(), this.rm ? 140 : 520);
-      this._ms = setTimeout(() => this.startSusp(), this.rm ? 1500 : 2700);
+      this._ms = setTimeout(() => this.startSusp(), this.rm ? 500 : 1700);
       if (!this.rm) {
         clearTimeout(this._ba1); clearTimeout(this._ba2);
         this._ba1 = setTimeout(() => this.setState({ bossAlert: true }), 460);
@@ -2657,8 +2806,9 @@ class Component extends DCLogic {
       flo9: this.floChars(fl[8]), flo10: this.floChars(fl[9]),
       exSuave: this.chars(T.suaveEx), exFuerte: this.chars(T.fuerteEx),
       exSuaveT: this.chars(T.suaveT), exFuerteT: this.chars(T.fuerteT),
-      d1Open: this.state.discl === 1, d2Open: this.state.discl === 2,
+      d1Open: this.state.discl === 1, dMicOpen: this.state.discl === 2, d2Open: this.state.discl === 3,
       okD1: () => { this.sfx('pop'); this.setState({ discl: 2 }); },
+      okDMic: () => { this.sfx('pop'); this.setState({ discl: 3 }); },
       okD2: () => { this.sfx('pop'); this.setState({ discl: 0 }); this.go('mapa'); },
       langES: this.lang === 'es', langEN: this.lang === 'en', langRU: this.lang === 'ru', langAR: this.lang === 'ar', langIT: this.lang === 'it',
       pizzaOpen: !!this.state.pizza,
@@ -2737,7 +2887,9 @@ class Component extends DCLogic {
       dafUp: () => { this._dafDrag = false; },
       popOn: !!this.state.pop, hasToast: !!this.state.toast, toast: this.state.toast || '',
       micOn: this.mic, micOff: !this.mic,
-      toggleMic: () => { this.sfx('pop'); if (this.mic) { this.dafOff(); this.setState({ mic: false }); } else { this.dafOn(); } },
+      toggleMic: () => { this.sfx('pop'); if (this.mic) { this.dafOff(); this.setState({ mic: false, micName: '' }); } else { this.dafOn(); } },
+      micName: this.state.micName || T.dMicNone,
+      micNameColor: this.state.micName ? '#DCEAF1' : '#6E8B9A',
       hpDots: hpDots,
       bossAlive: !this.state.muerto, bossDying: !!this.state.muerto,
       bossAnim: (this.state.sacude && !this.rm) ? { animation: 'golpe .6s cubic-bezier(.36,1.4,.4,1) both' } : { animation: 'flotaLenta 4.2s ease-in-out infinite' },
