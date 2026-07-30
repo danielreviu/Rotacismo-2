@@ -115,20 +115,51 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
 .toast{max-width:calc(100vw - 28px)!important}
 
 /* =======================================================================
-   <= 960px  ·  MAPA en columna
+   <= 960px  ·  MAPA  —  se mantiene el mapa pirata: el lienzo entero se
+   reduce guardando su proporción y cada etapa conserva su sitio (las
+   posiciones ya están en % del lienzo). Las tarjetas se miden con
+   container queries (cqw), así que escalan solas con el mapa.
    ======================================================================= */
 @media (max-width:960px){
-  .mp-screen{padding:14px max(12px,env(safe-area-inset-left)) calc(26px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-right))!important;overflow-x:hidden!important;align-items:center!important}
+  .mp-screen{padding:12px max(8px,env(safe-area-inset-left)) calc(22px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-right))!important;overflow-x:hidden!important;align-items:center!important}
   .mp-top{width:100%!important;max-width:560px!important}
-  /* el mapa ilustrado pasa a ser el fondo y los niveles se apilan encima */
-  .mp-screen .mp-board{position:relative!important;width:100%!important;max-width:560px!important;height:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:16px!important;margin-top:12px!important;padding:16px 12px 24px!important;border-radius:24px!important;overflow:hidden!important;box-shadow:0 14px 34px rgba(6,40,60,.3)!important}
-  .mp-screen .mp-hud{position:relative!important;z-index:4!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;flex-direction:row!important;width:100%!important;justify-content:center!important;gap:10px!important;align-items:center!important}
-  .mp-screen .mp-hud button{flex:1 1 0!important;justify-content:center!important;height:50px!important;font-size:14px!important;padding:0 10px!important}
-  .mp-screen .mp-bg{position:absolute!important;left:0!important;top:0!important;right:0!important;bottom:0!important;inset:0!important;z-index:0!important;width:100%!important;height:100%!important;border-radius:0!important;box-shadow:none!important}
-  .mp-screen .mp-bg-img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important}
+
+  /* lienzo del mapa: ancho completo, proporción original 860x1478 */
+  .mp-screen .mp-board{position:relative!important;width:100%!important;max-width:560px!important;height:auto!important;aspect-ratio:860/1478;margin-top:10px!important;border-radius:18px!important;overflow:hidden!important;box-shadow:0 12px 30px rgba(6,40,60,.3)!important}
+  .mp-screen .mp-bg{width:100%!important;height:100%!important;border-radius:0!important;box-shadow:none!important}
+  .mp-screen .mp-bg-img{width:100%!important;height:100%!important;object-fit:cover!important}
   .mp-screen .mp-clouds{display:none!important}
-  .mp-screen .mp-board .mp-node{position:relative!important;z-index:2!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;transform:none!important;width:100%!important;max-width:440px!important;margin:0 auto!important}
-  .mp-screen .mp-board .mp-cofre{margin-top:2px!important}
+
+  /* PORTADA / AJUSTES: arriba a la derecha como en escritorio, en pequeño */
+  .mp-screen .mp-hud{right:2.4%!important;top:1.4%!important;gap:5px!important;width:auto!important;align-items:stretch!important}
+  .mp-screen .mp-hud button{height:auto!important;min-height:0!important;padding:6px 9px!important;font-size:10px!important;letter-spacing:.2px!important;border-radius:9px!important;border-bottom-width:3px!important;gap:5px!important}
+  .mp-screen .mp-hud button svg{width:13px!important;height:13px!important}
+
+  /* ETAPAS: en su posición del mapa, pequeñas (~2:1) pero legibles */
+  .mp-screen .mp-board .mp-node{container-type:inline-size}
+  .mp-screen .mp-board .mp-n1{left:24.883721%!important;top:13.261164%!important;width:34%!important}
+  .mp-screen .mp-board .mp-n2{left:54.883721%!important;top:23.815968%!important;width:33.7%!important}
+  .mp-screen .mp-board .mp-n3{left:36.976744%!important;top:51.014885%!important;width:34.9%!important}
+  .mp-screen .mp-board .mp-n4{left:34.883721%!important;top:81.055480%!important;width:37.6%!important}
+  .mp-screen .mp-board .mp-cofre{left:77.674419%!important;top:90.121786%!important;width:34.6%!important}
+  .mp-card{padding:7cqw 5.5cqw 7cqw!important;border-width:2px!important;border-bottom-width:3.5px!important;border-radius:7cqw!important;box-shadow:0 3px 0 rgba(0,0,0,.18)!important}
+  .mp-card-top{gap:3cqw!important}
+  .mp-badge{width:auto!important;min-width:16.5cqw!important;height:16.5cqw!important;flex:0 0 auto!important;padding:0 1cqw!important;border-radius:4.5cqw!important;font-size:8.2cqw!important}
+  .mp-name{font-size:10cqw!important;line-height:1.04!important;min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important}
+  .mp-sub{display:none!important}
+  .mp-bar{height:6.5cqw!important;margin-top:4.5cqw!important}
+  .mp-lock{right:1.5cqw!important;top:-5cqw!important}
+  .mp-lock svg{width:13cqw!important;height:13cqw!important}
+  .mp-flag{right:-3cqw!important;top:-19cqw!important}
+  .mp-flag svg{width:21cqw!important;height:27cqw!important}
+  .mp-spark{display:none!important}
+
+  /* cofre */
+  .mp-cofre-box{width:100%!important;height:45cqw!important}
+  .mp-cofre-svg{width:56.5cqw!important;height:43.5cqw!important;top:1cqw!important}
+  .mp-cofre-glow{display:none!important}
+  .mp-cofre-lbl{font-size:9.4cqw!important;line-height:1.08!important;margin-top:0!important}
+  .mp-cofre-sub{font-size:6.6cqw!important;line-height:1.1!important}
 }
 
 /* =======================================================================
@@ -146,8 +177,13 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
   .pt-cta-col{width:100%!important;align-items:stretch!important;gap:12px!important}
   .pt-hot{padding:0!important;margin:0!important;width:100%!important}
   .pt-cta-box,.pt-cta-fx{width:100%!important;max-width:100%!important}
+  /* chispas del botón: recorte lateral para que no se salgan (siguen subiendo) */
+  .pt-cta-fx{overflow-x:clip!important;overflow-y:visible!important}
   .pt-cta,.pt-cont-box,.pt-cont{width:100%!important;max-width:100%!important}
   .pt-lang{width:100%!important;height:auto!important;flex-direction:row!important;justify-content:center!important;gap:14px!important;padding:12px 18px!important;border-radius:18px!important}
+  /* halos decorativos: que no sobresalgan de la pantalla */
+  .pt-cont-box > div:first-child{left:-10px!important;right:-10px!important;width:auto!important}
+  .pt-piz-wrap > div:first-child{left:-10px!important;right:-10px!important;top:-14px!important;bottom:-14px!important}
   .pt-links{width:100%!important;gap:12px!important;margin-top:26px!important}
   .pt-guia,.pt-piz-wrap{flex:1 1 150px!important;min-width:0!important;width:auto!important}
   .pt-guia,.pt-piz{width:100%!important;height:auto!important;min-height:58px!important;padding:8px 10px!important;font-size:14px!important;line-height:1.15!important}
@@ -596,16 +632,16 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
 
         <div class="mp-node mp-n1" onClick="{{ tapL1 }}" style="position:absolute;left:214px;top:196px;transform:translate(-50%,-50%);width:226px;cursor:pointer;filter:{{ l1.filter }};opacity:{{ l1.op }}">
           <div style="{{ l1.fx }}">
-          <div style="position:relative;background:#C98F4E;border:3px solid #7A4E1E;border-bottom-width:7px;border-radius:13px;padding:11px 14px 12px;box-shadow:0 7px 0 rgba(0,0,0,.16);transition:transform .2s cubic-bezier(.3,1.3,.5,1),box-shadow .2s ease" style-hover="transform:translateY(-8px) scale(1.04);box-shadow:0 15px 0 rgba(0,0,0,.18),0 0 0 3px rgba(255,200,0,.7)">
-            <div style="display:flex;align-items:center;gap:9px">
-              <div style="width:28px;height:28px;border-radius:8px;background:#FFF3D6;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#7A4E1E">I</div>
-              <div style="font-family:'Baloo 2','Cairo',cursive;font-size:22px;font-weight:800;color:#FFF3D6;line-height:1.08;white-space:nowrap">{{ nom1 }}</div>
+          <div class="mp-card" style="position:relative;background:#C98F4E;border:3px solid #7A4E1E;border-bottom-width:7px;border-radius:13px;padding:11px 14px 12px;box-shadow:0 7px 0 rgba(0,0,0,.16);transition:transform .2s cubic-bezier(.3,1.3,.5,1),box-shadow .2s ease" style-hover="transform:translateY(-8px) scale(1.04);box-shadow:0 15px 0 rgba(0,0,0,.18),0 0 0 3px rgba(255,200,0,.7)">
+            <div class="mp-card-top" style="display:flex;align-items:center;gap:9px">
+              <div class="mp-badge" style="width:28px;height:28px;border-radius:8px;background:#FFF3D6;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#7A4E1E">I</div>
+              <div class="mp-name" style="font-family:'Baloo 2','Cairo',cursive;font-size:22px;font-weight:800;color:#FFF3D6;line-height:1.08;white-space:nowrap">{{ nom1 }}</div>
             </div>
-            <div style="font-size:13px;font-weight:800;color:#F0D8AE;margin:6px 0 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ l1sub }}</div>
-            <div style="height:10px;border-radius:99px;background:#8A5C28;overflow:hidden"><div style="width:{{ l1.pctW }};height:100%;background:#FFC800"></div></div>
+            <div class="mp-sub" style="font-size:13px;font-weight:800;color:#F0D8AE;margin:6px 0 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ l1sub }}</div>
+            <div class="mp-bar" style="height:10px;border-radius:99px;background:#8A5C28;overflow:hidden"><div style="width:{{ l1.pctW }};height:100%;background:#FFC800"></div></div>
             <sc-if value="{{ l1.done }}">
-              <div style="position:absolute;right:-16px;top:-56px"><div style="{{ l1.flagFx }}"><svg viewBox="0 0 40 44" style="width:54px;height:69px;display:block;overflow:visible"><path d="M8 44 V4" stroke="#5A3A16" stroke-width="4.4" stroke-linecap="round"></path><g style="animation:ondea 3.4s ease-in-out infinite;transform-origin:10px 14px;transform-box:view-box"><path d="M10 6 h24 l-6 8 6 8 H10 z" fill="#FF4B4B" stroke="#A82323" stroke-width="2.2"></path><circle cx="19" cy="13" r="2.6" fill="#FFF3D6"></circle></g></svg></div></div>
-              <div style="position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none">
+              <div class="mp-flag" style="position:absolute;right:-16px;top:-56px"><div style="{{ l1.flagFx }}"><svg viewBox="0 0 40 44" style="width:54px;height:69px;display:block;overflow:visible"><path d="M8 44 V4" stroke="#5A3A16" stroke-width="4.4" stroke-linecap="round"></path><g style="animation:ondea 3.4s ease-in-out infinite;transform-origin:10px 14px;transform-box:view-box"><path d="M10 6 h24 l-6 8 6 8 H10 z" fill="#FF4B4B" stroke="#A82323" stroke-width="2.2"></path><circle cx="19" cy="13" r="2.6" fill="#FFF3D6"></circle></g></svg></div></div>
+              <div class="mp-spark" style="position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none">
                 <div style="position:absolute;left:14px;top:-7px;width:6px;height:6px;border-radius:2px;background:#FFE9AE;box-shadow:0 0 8px rgba(255,231,174,.9);animation:destelloSuave 4.4s ease-in-out infinite"></div>
                 <div style="position:absolute;right:28px;bottom:9px;width:5px;height:5px;border-radius:99px;background:#FFF6D8;box-shadow:0 0 7px rgba(255,246,216,.9);animation:destelloSuave 5.2s ease-in-out 1.4s infinite"></div>
                 <div style="position:absolute;left:52px;bottom:-7px;width:7px;height:7px;border-radius:2px;background:#FFC800;box-shadow:0 0 9px rgba(255,200,0,.7);animation:destelloSuave 6s ease-in-out 2.6s infinite"></div>
@@ -618,17 +654,17 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
 
         <div class="mp-node mp-n2" onClick="{{ tapL2 }}" style="position:absolute;left:472px;top:352px;transform:translate(-50%,-50%);width:224px;cursor:pointer;filter:{{ l2.filter }};opacity:{{ l2.op }}">
           <div style="{{ l2.fx }}">
-          <div style="position:relative;background:#C98F4E;border:3px solid #7A4E1E;border-bottom-width:7px;border-radius:13px;padding:11px 14px 12px;box-shadow:0 7px 0 rgba(0,0,0,.16);transition:transform .2s cubic-bezier(.3,1.3,.5,1),box-shadow .2s ease" style-hover="transform:translateY(-8px) scale(1.04);box-shadow:0 15px 0 rgba(0,0,0,.18),0 0 0 3px rgba(255,200,0,.7)">
-            <div style="display:flex;align-items:center;gap:9px">
-              <div style="width:30px;height:28px;border-radius:8px;background:#FFF3D6;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#7A4E1E">II</div>
-              <div style="font-family:'Baloo 2','Cairo',cursive;font-size:22px;font-weight:800;color:#FFF3D6;line-height:1.08;white-space:nowrap">{{ nom2 }}</div>
+          <div class="mp-card" style="position:relative;background:#C98F4E;border:3px solid #7A4E1E;border-bottom-width:7px;border-radius:13px;padding:11px 14px 12px;box-shadow:0 7px 0 rgba(0,0,0,.16);transition:transform .2s cubic-bezier(.3,1.3,.5,1),box-shadow .2s ease" style-hover="transform:translateY(-8px) scale(1.04);box-shadow:0 15px 0 rgba(0,0,0,.18),0 0 0 3px rgba(255,200,0,.7)">
+            <div class="mp-card-top" style="display:flex;align-items:center;gap:9px">
+              <div class="mp-badge" style="width:30px;height:28px;border-radius:8px;background:#FFF3D6;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#7A4E1E">II</div>
+              <div class="mp-name" style="font-family:'Baloo 2','Cairo',cursive;font-size:22px;font-weight:800;color:#FFF3D6;line-height:1.08;white-space:nowrap">{{ nom2 }}</div>
             </div>
-            <div style="font-size:13px;font-weight:800;color:#F0D8AE;margin:6px 0 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ l2sub }}</div>
-            <div style="height:10px;border-radius:99px;background:#8A5C28;overflow:hidden"><div style="width:{{ l2.pctW }};height:100%;background:#FFC800"></div></div>
-            <sc-if value="{{ l2.locked }}"><div style="position:absolute;right:8px;top:-18px"><svg viewBox="0 0 24 24" style="width:28px;height:28px"><rect x="4" y="10" width="16" height="11" rx="3" fill="#8A9AA4" stroke="#3C3C3C" stroke-width="2.4"></rect><path d="M8 10 V7.5 a4 4 0 0 1 8 0 V10" stroke="#3C3C3C" stroke-width="2.6" fill="none"></path></svg></div></sc-if>
+            <div class="mp-sub" style="font-size:13px;font-weight:800;color:#F0D8AE;margin:6px 0 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ l2sub }}</div>
+            <div class="mp-bar" style="height:10px;border-radius:99px;background:#8A5C28;overflow:hidden"><div style="width:{{ l2.pctW }};height:100%;background:#FFC800"></div></div>
+            <sc-if value="{{ l2.locked }}"><div class="mp-lock" style="position:absolute;right:8px;top:-18px"><svg viewBox="0 0 24 24" style="width:28px;height:28px"><rect x="4" y="10" width="16" height="11" rx="3" fill="#8A9AA4" stroke="#3C3C3C" stroke-width="2.4"></rect><path d="M8 10 V7.5 a4 4 0 0 1 8 0 V10" stroke="#3C3C3C" stroke-width="2.6" fill="none"></path></svg></div></sc-if>
             <sc-if value="{{ l2.done }}">
-              <div style="position:absolute;right:-16px;top:-56px"><div style="{{ l2.flagFx }}"><svg viewBox="0 0 40 44" style="width:54px;height:69px;display:block;overflow:visible"><path d="M8 44 V4" stroke="#5A3A16" stroke-width="4.4" stroke-linecap="round"></path><g style="animation:ondea 3.7s ease-in-out infinite;transform-origin:10px 14px;transform-box:view-box"><path d="M10 6 h24 l-6 8 6 8 H10 z" fill="#FF4B4B" stroke="#A82323" stroke-width="2.2"></path><circle cx="19" cy="13" r="2.6" fill="#FFF3D6"></circle></g></svg></div></div>
-              <div style="position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none">
+              <div class="mp-flag" style="position:absolute;right:-16px;top:-56px"><div style="{{ l2.flagFx }}"><svg viewBox="0 0 40 44" style="width:54px;height:69px;display:block;overflow:visible"><path d="M8 44 V4" stroke="#5A3A16" stroke-width="4.4" stroke-linecap="round"></path><g style="animation:ondea 3.7s ease-in-out infinite;transform-origin:10px 14px;transform-box:view-box"><path d="M10 6 h24 l-6 8 6 8 H10 z" fill="#FF4B4B" stroke="#A82323" stroke-width="2.2"></path><circle cx="19" cy="13" r="2.6" fill="#FFF3D6"></circle></g></svg></div></div>
+              <div class="mp-spark" style="position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none">
                 <div style="position:absolute;left:18px;top:-8px;width:6px;height:6px;border-radius:2px;background:#FFE9AE;box-shadow:0 0 8px rgba(255,231,174,.9);animation:destelloSuave 4.9s ease-in-out .6s infinite"></div>
                 <div style="position:absolute;right:30px;bottom:10px;width:5px;height:5px;border-radius:99px;background:#FFF6D8;box-shadow:0 0 7px rgba(255,246,216,.9);animation:destelloSuave 5.6s ease-in-out 2s infinite"></div>
                 <div style="position:absolute;left:60px;bottom:-7px;width:7px;height:7px;border-radius:2px;background:#FFC800;box-shadow:0 0 9px rgba(255,200,0,.7);animation:destelloSuave 6.2s ease-in-out 3.2s infinite"></div>
@@ -641,17 +677,17 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
 
         <div class="mp-node mp-n3" onClick="{{ tapL3 }}" style="position:absolute;left:318px;top:754px;transform:translate(-50%,-50%);width:232px;cursor:pointer;filter:{{ l3.filter }};opacity:{{ l3.op }}">
           <div style="{{ l3.fx }}">
-          <div style="position:relative;background:#C98F4E;border:3px solid #7A4E1E;border-bottom-width:7px;border-radius:13px;padding:11px 14px 12px;box-shadow:0 7px 0 rgba(0,0,0,.16);transition:transform .2s cubic-bezier(.3,1.3,.5,1),box-shadow .2s ease" style-hover="transform:translateY(-8px) scale(1.04);box-shadow:0 15px 0 rgba(0,0,0,.18),0 0 0 3px rgba(255,200,0,.7)">
-            <div style="display:flex;align-items:center;gap:9px">
-              <div style="width:32px;height:28px;border-radius:8px;background:#FFF3D6;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#7A4E1E">III</div>
-              <div style="font-family:'Baloo 2','Cairo',cursive;font-size:21px;font-weight:800;color:#FFF3D6;line-height:1.08;white-space:nowrap">{{ nom3 }}</div>
+          <div class="mp-card" style="position:relative;background:#C98F4E;border:3px solid #7A4E1E;border-bottom-width:7px;border-radius:13px;padding:11px 14px 12px;box-shadow:0 7px 0 rgba(0,0,0,.16);transition:transform .2s cubic-bezier(.3,1.3,.5,1),box-shadow .2s ease" style-hover="transform:translateY(-8px) scale(1.04);box-shadow:0 15px 0 rgba(0,0,0,.18),0 0 0 3px rgba(255,200,0,.7)">
+            <div class="mp-card-top" style="display:flex;align-items:center;gap:9px">
+              <div class="mp-badge" style="width:32px;height:28px;border-radius:8px;background:#FFF3D6;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#7A4E1E">III</div>
+              <div class="mp-name" style="font-family:'Baloo 2','Cairo',cursive;font-size:21px;font-weight:800;color:#FFF3D6;line-height:1.08;white-space:nowrap">{{ nom3 }}</div>
             </div>
-            <div style="font-size:13px;font-weight:800;color:#F0D8AE;margin:6px 0 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ l3sub }}</div>
-            <div style="height:10px;border-radius:99px;background:#8A5C28;overflow:hidden"><div style="width:{{ l3.pctW }};height:100%;background:#FFC800"></div></div>
-            <sc-if value="{{ l3.locked }}"><div style="position:absolute;right:8px;top:-18px"><svg viewBox="0 0 24 24" style="width:28px;height:28px"><rect x="4" y="10" width="16" height="11" rx="3" fill="#8A9AA4" stroke="#3C3C3C" stroke-width="2.4"></rect><path d="M8 10 V7.5 a4 4 0 0 1 8 0 V10" stroke="#3C3C3C" stroke-width="2.6" fill="none"></path></svg></div></sc-if>
+            <div class="mp-sub" style="font-size:13px;font-weight:800;color:#F0D8AE;margin:6px 0 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ l3sub }}</div>
+            <div class="mp-bar" style="height:10px;border-radius:99px;background:#8A5C28;overflow:hidden"><div style="width:{{ l3.pctW }};height:100%;background:#FFC800"></div></div>
+            <sc-if value="{{ l3.locked }}"><div class="mp-lock" style="position:absolute;right:8px;top:-18px"><svg viewBox="0 0 24 24" style="width:28px;height:28px"><rect x="4" y="10" width="16" height="11" rx="3" fill="#8A9AA4" stroke="#3C3C3C" stroke-width="2.4"></rect><path d="M8 10 V7.5 a4 4 0 0 1 8 0 V10" stroke="#3C3C3C" stroke-width="2.6" fill="none"></path></svg></div></sc-if>
             <sc-if value="{{ l3.done }}">
-              <div style="position:absolute;right:-16px;top:-56px"><div style="{{ l3.flagFx }}"><svg viewBox="0 0 40 44" style="width:54px;height:69px;display:block;overflow:visible"><path d="M8 44 V4" stroke="#5A3A16" stroke-width="4.4" stroke-linecap="round"></path><g style="animation:ondea 3.2s ease-in-out infinite;transform-origin:10px 14px;transform-box:view-box"><path d="M10 6 h24 l-6 8 6 8 H10 z" fill="#FF4B4B" stroke="#A82323" stroke-width="2.2"></path><circle cx="19" cy="13" r="2.6" fill="#FFF3D6"></circle></g></svg></div></div>
-              <div style="position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none">
+              <div class="mp-flag" style="position:absolute;right:-16px;top:-56px"><div style="{{ l3.flagFx }}"><svg viewBox="0 0 40 44" style="width:54px;height:69px;display:block;overflow:visible"><path d="M8 44 V4" stroke="#5A3A16" stroke-width="4.4" stroke-linecap="round"></path><g style="animation:ondea 3.2s ease-in-out infinite;transform-origin:10px 14px;transform-box:view-box"><path d="M10 6 h24 l-6 8 6 8 H10 z" fill="#FF4B4B" stroke="#A82323" stroke-width="2.2"></path><circle cx="19" cy="13" r="2.6" fill="#FFF3D6"></circle></g></svg></div></div>
+              <div class="mp-spark" style="position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none">
                 <div style="position:absolute;left:22px;top:-7px;width:6px;height:6px;border-radius:2px;background:#FFE9AE;box-shadow:0 0 8px rgba(255,231,174,.9);animation:destelloSuave 5.1s ease-in-out 1.1s infinite"></div>
                 <div style="position:absolute;right:34px;bottom:9px;width:5px;height:5px;border-radius:99px;background:#FFF6D8;box-shadow:0 0 7px rgba(255,246,216,.9);animation:destelloSuave 4.6s ease-in-out 2.7s infinite"></div>
                 <div style="position:absolute;left:66px;bottom:-7px;width:7px;height:7px;border-radius:2px;background:#FFC800;box-shadow:0 0 9px rgba(255,200,0,.7);animation:destelloSuave 6.4s ease-in-out .4s infinite"></div>
@@ -664,17 +700,17 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
 
         <div class="mp-node mp-n4" onClick="{{ tapL4 }}" style="position:absolute;left:300px;top:1198px;transform:translate(-50%,-50%);width:250px;cursor:pointer;filter:{{ l4.filter }};opacity:{{ l4.op }}">
           <div style="{{ l4.fx }}">
-          <div style="position:relative;background:#8E6236;border:3px solid #4E3116;border-bottom-width:7px;border-radius:13px;padding:12px 14px 13px;box-shadow:0 8px 0 rgba(0,0,0,.2);transition:transform .2s cubic-bezier(.3,1.3,.5,1),box-shadow .2s ease" style-hover="transform:translateY(-8px) scale(1.04);box-shadow:0 16px 0 rgba(0,0,0,.22),0 0 0 3px rgba(255,75,75,.65)">
-            <div style="display:flex;align-items:center;gap:9px">
-              <div style="width:34px;height:28px;border-radius:8px;background:#FFF3D6;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#4E3116">IV</div>
-              <div style="font-family:'Baloo 2','Cairo',cursive;font-size:21px;font-weight:800;color:#FFF3D6;line-height:1.08;white-space:nowrap">{{ nom4 }}</div>
+          <div class="mp-card" style="position:relative;background:#8E6236;border:3px solid #4E3116;border-bottom-width:7px;border-radius:13px;padding:12px 14px 13px;box-shadow:0 8px 0 rgba(0,0,0,.2);transition:transform .2s cubic-bezier(.3,1.3,.5,1),box-shadow .2s ease" style-hover="transform:translateY(-8px) scale(1.04);box-shadow:0 16px 0 rgba(0,0,0,.22),0 0 0 3px rgba(255,75,75,.65)">
+            <div class="mp-card-top" style="display:flex;align-items:center;gap:9px">
+              <div class="mp-badge" style="width:34px;height:28px;border-radius:8px;background:#FFF3D6;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#4E3116">IV</div>
+              <div class="mp-name" style="font-family:'Baloo 2','Cairo',cursive;font-size:21px;font-weight:800;color:#FFF3D6;line-height:1.08;white-space:nowrap">{{ nom4 }}</div>
             </div>
-            <div style="font-size:13px;font-weight:800;color:#E7CDA6;margin:6px 0 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ l4sub }}</div>
-            <div style="height:10px;border-radius:99px;background:#5C3D1C;overflow:hidden"><div style="width:{{ l4.pctW }};height:100%;background:#FFC800"></div></div>
-            <sc-if value="{{ l4.locked }}"><div style="position:absolute;right:8px;top:-18px"><svg viewBox="0 0 24 24" style="width:28px;height:28px"><rect x="4" y="10" width="16" height="11" rx="3" fill="#8A9AA4" stroke="#3C3C3C" stroke-width="2.4"></rect><path d="M8 10 V7.5 a4 4 0 0 1 8 0 V10" stroke="#3C3C3C" stroke-width="2.6" fill="none"></path></svg></div></sc-if>
+            <div class="mp-sub" style="font-size:13px;font-weight:800;color:#E7CDA6;margin:6px 0 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ l4sub }}</div>
+            <div class="mp-bar" style="height:10px;border-radius:99px;background:#5C3D1C;overflow:hidden"><div style="width:{{ l4.pctW }};height:100%;background:#FFC800"></div></div>
+            <sc-if value="{{ l4.locked }}"><div class="mp-lock" style="position:absolute;right:8px;top:-18px"><svg viewBox="0 0 24 24" style="width:28px;height:28px"><rect x="4" y="10" width="16" height="11" rx="3" fill="#8A9AA4" stroke="#3C3C3C" stroke-width="2.4"></rect><path d="M8 10 V7.5 a4 4 0 0 1 8 0 V10" stroke="#3C3C3C" stroke-width="2.6" fill="none"></path></svg></div></sc-if>
             <sc-if value="{{ l4.done }}">
-              <div style="position:absolute;right:-16px;top:-56px"><div style="{{ l4.flagFx }}"><svg viewBox="0 0 40 44" style="width:54px;height:69px;display:block;overflow:visible"><path d="M8 44 V4" stroke="#5A3A16" stroke-width="4.4" stroke-linecap="round"></path><g style="animation:ondea 3.9s ease-in-out infinite;transform-origin:10px 14px;transform-box:view-box"><path d="M10 6 h24 l-6 8 6 8 H10 z" fill="#FF4B4B" stroke="#A82323" stroke-width="2.2"></path><circle cx="19" cy="13" r="2.6" fill="#FFF3D6"></circle></g></svg></div></div>
-              <div style="position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none">
+              <div class="mp-flag" style="position:absolute;right:-16px;top:-56px"><div style="{{ l4.flagFx }}"><svg viewBox="0 0 40 44" style="width:54px;height:69px;display:block;overflow:visible"><path d="M8 44 V4" stroke="#5A3A16" stroke-width="4.4" stroke-linecap="round"></path><g style="animation:ondea 3.9s ease-in-out infinite;transform-origin:10px 14px;transform-box:view-box"><path d="M10 6 h24 l-6 8 6 8 H10 z" fill="#FF4B4B" stroke="#A82323" stroke-width="2.2"></path><circle cx="19" cy="13" r="2.6" fill="#FFF3D6"></circle></g></svg></div></div>
+              <div class="mp-spark" style="position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none">
                 <div style="position:absolute;left:16px;top:-8px;width:6px;height:6px;border-radius:2px;background:#FFE9AE;box-shadow:0 0 8px rgba(255,231,174,.9);animation:destelloSuave 4.7s ease-in-out .9s infinite"></div>
                 <div style="position:absolute;right:32px;bottom:10px;width:5px;height:5px;border-radius:99px;background:#FFF6D8;box-shadow:0 0 7px rgba(255,246,216,.9);animation:destelloSuave 5.9s ease-in-out 2.3s infinite"></div>
                 <div style="position:absolute;left:70px;bottom:-7px;width:7px;height:7px;border-radius:2px;background:#FFC800;box-shadow:0 0 9px rgba(255,200,0,.7);animation:destelloSuave 6.6s ease-in-out 3.6s infinite"></div>
@@ -687,8 +723,8 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
 
         <div class="mp-node mp-cofre" onClick="{{ tapL5 }}" onMouseEnter="{{ cofreOn }}" onMouseLeave="{{ cofreOff }}" style="position:absolute;left:668px;top:1332px;transform:translate(-50%,-50%);width:230px;cursor:pointer;text-align:center;transition:transform .62s cubic-bezier(.28,1.1,.42,1)" style-hover="transform:translate(-50%,-55%) scale(1.08)">
           <div style="{{ cofreShake }}">
-            <div style="position:relative;width:230px;height:104px;margin:0 auto">
-              <div style="position:absolute;inset:0;pointer-events:none;opacity:{{ cofreGlow }};transition:opacity 1.1s cubic-bezier(.32,.66,.36,1)">
+            <div class="mp-cofre-box" style="position:relative;width:230px;height:104px;margin:0 auto">
+              <div class="mp-cofre-glow" style="position:absolute;inset:0;pointer-events:none;opacity:{{ cofreGlow }};transition:opacity 1.1s cubic-bezier(.32,.66,.36,1)">
                 <div style="position:absolute;left:50%;top:2px;transform:translateX(-50%);width:196px;height:118px;border-radius:99px;background:radial-gradient(closest-side,rgba(255,211,77,.8),rgba(255,211,77,0));animation:brilloOro 2.8s ease-in-out infinite"></div>
                 <div style="position:absolute;left:38px;top:64px;width:9px;height:9px;border-radius:3px;background:#FFF0B8;box-shadow:0 0 10px rgba(255,240,184,.9);animation:pixA 2.2s linear infinite"></div>
                 <div style="position:absolute;left:74px;top:72px;width:7px;height:7px;border-radius:99px;background:#FFC800;box-shadow:0 0 9px rgba(255,200,0,.9);animation:pixC 2.5s linear .45s infinite"></div>
@@ -696,7 +732,7 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
                 <div style="position:absolute;left:154px;top:74px;width:7px;height:7px;border-radius:99px;background:#FFC800;box-shadow:0 0 9px rgba(255,200,0,.9);animation:pixD 2.7s linear .3s infinite"></div>
                 <div style="position:absolute;left:186px;top:66px;width:8px;height:8px;border-radius:3px;background:#FFF6D8;box-shadow:0 0 10px rgba(255,246,216,.9);animation:pixA 2.45s linear 1.2s infinite"></div>
               </div>
-              <svg viewBox="0 0 130 100" style="position:absolute;left:50%;top:2px;transform:translateX(-50%);width:130px;height:100px;display:block;filter:{{ l5.filter }};opacity:{{ l5.op }}">
+              <svg class="mp-cofre-svg" viewBox="0 0 130 100" style="position:absolute;left:50%;top:2px;transform:translateX(-50%);width:130px;height:100px;display:block;filter:{{ l5.filter }};opacity:{{ l5.op }}">
                 <defs>
                   <clipPath id="cofreCajaA"><path d="M14 42 q51 -36 102 0 v36 a6 6 0 0 1 -6 6 H20 a6 6 0 0 1 -6 -6 z"></path></clipPath>
                 </defs>
@@ -715,7 +751,7 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
                 <g fill="#8A5A20"><circle cx="57" cy="52.6" r="1.5"></circle><circle cx="71" cy="52.6" r="1.5"></circle><circle cx="57" cy="71.4" r="1.5"></circle><circle cx="71" cy="71.4" r="1.5"></circle></g>
                 <g fill="#3C3C3C" opacity=".75"><circle cx="30" cy="79" r="1.9"></circle><circle cx="100" cy="79" r="1.9"></circle><circle cx="30" cy="38" r="1.7"></circle><circle cx="100" cy="38" r="1.7"></circle></g>
               </svg>
-              <svg viewBox="0 0 130 100" style="position:absolute;left:50%;top:2px;transform:translateX(-50%);width:130px;height:100px;display:block;pointer-events:none;filter:drop-shadow(0 0 14px rgba(255,200,0,.55));opacity:{{ cofreGlow }};transition:opacity 1.25s cubic-bezier(.34,.62,.38,1)">
+              <svg class="mp-cofre-svg" viewBox="0 0 130 100" style="position:absolute;left:50%;top:2px;transform:translateX(-50%);width:130px;height:100px;display:block;pointer-events:none;filter:drop-shadow(0 0 14px rgba(255,200,0,.55));opacity:{{ cofreGlow }};transition:opacity 1.25s cubic-bezier(.34,.62,.38,1)">
                 <defs>
                   <clipPath id="cofreCajaB"><path d="M14 42 q51 -36 102 0 v36 a6 6 0 0 1 -6 6 H20 a6 6 0 0 1 -6 -6 z"></path></clipPath>
                 </defs>
@@ -739,8 +775,8 @@ button{max-width:100%;touch-action:manipulation;-webkit-tap-highlight-color:rgba
                 <path d="M104 28 l3.5 -9 3.5 9 9 3.5 -9 3.5 -3.5 9 -3.5 -9 -9 -3.5 z" fill="#FFF6D8" opacity=".8"></path>
               </svg>
             </div>
-            <div style="font-family:'Baloo 2','Cairo',cursive;font-size:21px;font-weight:800;color:#0C3549;margin-top:2px">{{ cofreLbl }}</div>
-            <div style="font-size:13px;font-weight:800;color:#164A63">{{ cofreSub }}</div>
+            <div class="mp-cofre-lbl" style="font-family:'Baloo 2','Cairo',cursive;font-size:21px;font-weight:800;color:#0C3549;margin-top:2px">{{ cofreLbl }}</div>
+            <div class="mp-cofre-sub" style="font-size:13px;font-weight:800;color:#164A63">{{ cofreSub }}</div>
           </div>
         </div>
       </div>
